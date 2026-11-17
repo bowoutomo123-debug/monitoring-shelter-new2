@@ -1,0 +1,1623 @@
+```css
+/* =====================================================
+   RESET
+===================================================== */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family:
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    background:
+        radial-gradient(
+            circle at top right,
+            #102b4b 0%,
+            #071525 40%,
+            #030a13 100%
+        );
+
+    color: #ffffff;
+    min-height: 100vh;
+}
+
+
+/* =====================================================
+   APP
+===================================================== */
+
+.app {
+    display: flex;
+    min-height: 100vh;
+}
+
+
+/* =====================================================
+   SIDEBAR
+===================================================== */
+
+.sidebar {
+    width: 225px;
+    min-height: 100vh;
+
+    background:
+        linear-gradient(
+            180deg,
+            #07182c 0%,
+            #061225 60%,
+            #030b17 100%
+        );
+
+    border-right: 1px solid rgba(70, 160, 255, 0.25);
+
+    display: flex;
+    flex-direction: column;
+
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+
+    z-index: 20;
+}
+
+
+/* BRAND */
+
+.brand {
+    text-align: center;
+    padding: 18px 10px 20px;
+}
+
+.brand img {
+    width: 115px;
+    height: 115px;
+
+    object-fit: contain;
+
+    filter:
+        drop-shadow(0 0 10px rgba(0, 140, 255, 0.25));
+}
+
+.brand h2 {
+    margin-top: 6px;
+
+    font-size: 15px;
+    line-height: 1.25;
+
+    letter-spacing: 0.5px;
+
+    color: #ffffff;
+}
+
+
+/* MENU */
+
+.menu {
+    padding: 10px 0;
+}
+
+.menu-item {
+    width: 100%;
+
+    border: none;
+    background: transparent;
+
+    color: #b8c9da;
+
+    padding: 15px 24px;
+
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    font-size: 15px;
+
+    cursor: pointer;
+
+    transition: 0.25s;
+}
+
+.menu-item span:first-child {
+    width: 25px;
+    font-size: 21px;
+    text-align: center;
+}
+
+.menu-item:hover {
+    background: rgba(25, 125, 220, 0.16);
+    color: white;
+}
+
+.menu-item.active {
+    background:
+        linear-gradient(
+            90deg,
+            rgba(0, 160, 255, 0.42),
+            rgba(0, 105, 210, 0.15)
+        );
+
+    border-left: 4px solid #20c9ff;
+
+    color: white;
+
+    box-shadow:
+        inset 0 0 25px rgba(0, 150, 255, 0.08);
+}
+
+
+/* SIDEBAR BOTTOM */
+
+.sidebar-bottom {
+    margin-top: auto;
+    padding: 14px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+.connection {
+    display: grid;
+    grid-template-columns: 10px 1fr auto;
+
+    align-items: center;
+
+    gap: 9px;
+
+    padding: 9px 4px;
+
+    font-size: 11px;
+}
+
+.connection b {
+    display: block;
+    font-size: 11px;
+}
+
+.connection small {
+    display: block;
+    color: #6f849b;
+    margin-top: 3px;
+}
+
+.connection strong {
+    color: #22e36b;
+    font-size: 9px;
+}
+
+
+/* =====================================================
+   STATUS DOT
+===================================================== */
+
+.status-dot {
+    width: 9px;
+    height: 9px;
+
+    border-radius: 50%;
+
+    display: inline-block;
+}
+
+.status-dot.green {
+    background: #21e86a;
+
+    box-shadow:
+        0 0 8px #21e86a;
+}
+
+.status-dot.red {
+    background: #ff3b3b;
+
+    box-shadow:
+        0 0 10px #ff3b3b;
+}
+
+
+/* =====================================================
+   MAIN
+===================================================== */
+
+.main {
+    margin-left: 225px;
+
+    width: calc(100% - 225px);
+
+    min-height: 100vh;
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.header {
+    height: 112px;
+
+    padding:
+        20px 32px;
+
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    border-bottom:
+        1px solid rgba(35, 160, 255, 0.35);
+
+    background:
+        rgba(4, 16, 30, 0.78);
+
+    backdrop-filter: blur(10px);
+}
+
+.header h1 {
+    font-size: 32px;
+    letter-spacing: -0.5px;
+
+    margin-bottom: 4px;
+}
+
+.header p {
+    color: #9cb0c5;
+    font-size: 15px;
+}
+
+.header-status {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.live {
+    color: #21e86a;
+    font-weight: 600;
+
+    display: flex;
+    align-items: center;
+    gap: 9px;
+}
+
+.clock {
+    color: #dce8f4;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.wifi {
+    font-size: 27px;
+    color: #1cc7ff;
+
+    text-shadow:
+        0 0 12px rgba(28,199,255,0.8);
+}
+
+
+/* =====================================================
+   DASHBOARD GRID
+===================================================== */
+
+.dashboard {
+    padding: 20px;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(500px, 2fr)
+        minmax(230px, 1fr)
+        minmax(230px, 1fr);
+
+    grid-template-rows:
+        auto
+        auto
+        auto
+        auto;
+
+    gap: 16px;
+}
+
+
+/* =====================================================
+   PANEL
+===================================================== */
+
+.panel {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(11, 31, 54, 0.94),
+            rgba(5, 18, 32, 0.96)
+        );
+
+    border:
+        1px solid rgba(78, 146, 207, 0.25);
+
+    border-radius: 14px;
+
+    box-shadow:
+        0 10px 35px rgba(0,0,0,0.25),
+        inset 0 0 30px rgba(20,100,170,0.025);
+
+    overflow: hidden;
+}
+
+
+/* =====================================================
+   PANEL TITLE
+===================================================== */
+
+.panel-title {
+    height: 55px;
+
+    padding: 0 18px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    font-size: 17px;
+
+    font-weight: 700;
+
+    border-bottom:
+        1px solid rgba(255,255,255,0.07);
+}
+
+.panel-title > div:first-child {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+}
+
+.home-icon {
+    font-size: 23px;
+    color: #38bfff;
+}
+
+
+/* =====================================================
+   VISUAL SHELTER
+===================================================== */
+
+.shelter-panel {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+
+    min-height: 540px;
+}
+
+.alert-badge {
+    background:
+        linear-gradient(
+            135deg,
+            #ff3030,
+            #c90000
+        );
+
+    border-radius: 9px;
+
+    padding: 11px 16px;
+
+    font-size: 14px;
+
+    font-weight: 800;
+
+    box-shadow:
+        0 0 20px rgba(255,0,0,0.55);
+
+    animation: dangerPulse 1s infinite;
+}
+
+.hidden {
+    display: none !important;
+}
+
+
+/* SHELTER SCENE */
+
+.shelter-container {
+    height: 485px;
+
+    position: relative;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            180deg,
+            #4c6687 0%,
+            #182f4d 55%,
+            #081525 100%
+        );
+}
+
+
+/* SKY */
+
+.sky {
+    position: absolute;
+
+    inset: 0 0 42% 0;
+
+    background:
+        linear-gradient(
+            180deg,
+            #203c61 0%,
+            #526f92 55%,
+            #91a3b7 100%
+        );
+
+    opacity: 0.95;
+}
+
+
+/* GROUND */
+
+.ground {
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    height: 44%;
+
+    background:
+        linear-gradient(
+            180deg,
+            #283c45,
+            #0b171d
+        );
+}
+
+
+/* SHELTER */
+
+.shelter {
+    position: absolute;
+
+    width: 64%;
+    height: 70%;
+
+    left: 17%;
+    bottom: 16%;
+
+    z-index: 3;
+}
+
+
+/* ROOF */
+
+.roof {
+    position: absolute;
+
+    left: -4%;
+    top: 0;
+
+    width: 108%;
+    height: 18px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #d9e1e7,
+            #7b8994
+        );
+
+    border-radius: 2px;
+
+    transform:
+        skewX(-7deg);
+
+    box-shadow:
+        0 5px 12px rgba(0,0,0,0.5);
+}
+
+
+/* WALL */
+
+.wall {
+    position: absolute;
+
+    left: 0;
+    right: 0;
+
+    top: 15px;
+    bottom: 0;
+
+    background:
+        linear-gradient(
+            145deg,
+            #d6dde1,
+            #a7b0b5 45%,
+            #7c878d
+        );
+
+    border:
+        2px solid #515b61;
+
+    box-shadow:
+        0 20px 35px rgba(0,0,0,0.45);
+
+    overflow: hidden;
+}
+
+
+/* SHELTER LABEL */
+
+.shelter-label {
+    position: absolute;
+
+    left: 7%;
+    top: 38%;
+
+    color: #15212b;
+
+    font-size: 11px;
+
+    font-weight: 900;
+
+    line-height: 1.25;
+
+    letter-spacing: 0.4px;
+
+    background: rgba(255,255,255,0.6);
+
+    padding: 6px 9px;
+
+    border: 1px solid rgba(0,0,0,0.2);
+
+    transform:
+        rotate(-2deg);
+}
+
+
+/* VENT */
+
+.vent {
+    position: absolute;
+
+    width: 42px;
+    height: 24px;
+
+    border:
+        3px solid #56636b;
+
+    background:
+        repeating-linear-gradient(
+            180deg,
+            #333f46 0px,
+            #333f46 3px,
+            #a6afb3 3px,
+            #a6afb3 5px
+        );
+
+    z-index: 2;
+}
+
+.vent-left {
+    left: 8%;
+    top: 15%;
+}
+
+.vent-right {
+    right: 6%;
+    bottom: 13%;
+}
+
+
+/* =====================================================
+   INSIDE SHELTER
+===================================================== */
+
+.inside {
+    position: absolute;
+
+    top: 9%;
+    right: 0;
+
+    width: 46%;
+    height: 84%;
+
+    background:
+        linear-gradient(
+            90deg,
+            #111b22,
+            #26343a
+        );
+
+    border-left:
+        3px solid #56636b;
+
+    overflow: hidden;
+}
+
+
+/* EQUIPMENT RACKS */
+
+.equipment {
+    position: absolute;
+
+    width: 48px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #3b474e,
+            #151d22
+        );
+
+    border:
+        2px solid #080c0f;
+
+    box-shadow:
+        0 0 10px rgba(0,0,0,0.7);
+}
+
+.equipment::before {
+    content: "";
+
+    position: absolute;
+
+    left: 7px;
+    right: 7px;
+
+    top: 9px;
+
+    height: 4px;
+
+    background: #18c7ff;
+
+    box-shadow:
+        0 13px 0 #20e66b,
+        0 26px 0 #ffd32a,
+        0 39px 0 #ff4d4d;
+}
+
+.equipment-1 {
+    left: 9%;
+    top: 18%;
+    height: 58%;
+}
+
+.equipment-2 {
+    left: 42%;
+    top: 24%;
+    height: 53%;
+}
+
+.equipment-3 {
+    right: 8%;
+    top: 14%;
+    height: 62%;
+}
+
+
+/* CEILING LIGHT */
+
+.ceiling-light {
+    position: absolute;
+
+    width: 45%;
+    height: 7px;
+
+    top: 7%;
+    left: 28%;
+
+    background: #fff7c7;
+
+    box-shadow:
+        0 0 18px #fff4b5;
+}
+
+
+/* =====================================================
+   PINTU
+===================================================== */
+
+.door {
+    position: absolute;
+
+    top: 9%;
+    right: 4%;
+
+    width: 43%;
+    height: 84%;
+
+    background:
+        linear-gradient(
+            135deg,
+            #cfd7da,
+            #89959b
+        );
+
+    border:
+        3px solid #4e585e;
+
+    z-index: 10;
+
+    transform-origin: right center;
+
+    transition:
+        transform 0.9s cubic-bezier(.2,.8,.2,1),
+        box-shadow 0.5s;
+
+    box-shadow:
+        5px 12px 20px rgba(0,0,0,0.45);
+}
+
+
+/* HANDLE */
+
+.door-handle {
+    position: absolute;
+
+    right: 12%;
+
+    top: 50%;
+
+    width: 8px;
+    height: 34px;
+
+    background: #252d31;
+
+    border-radius: 5px;
+}
+
+
+/* SIGN */
+
+.door-sign {
+    position: absolute;
+
+    top: 16%;
+    left: 18%;
+
+    padding: 5px 8px;
+
+    border: 1px solid #4e585e;
+
+    font-size: 8px;
+
+    color: #20282d;
+
+    font-weight: bold;
+}
+
+
+/* OPEN */
+
+.door.open {
+    transform:
+        perspective(600px)
+        rotateY(75deg);
+
+    box-shadow:
+        15px 20px 35px rgba(0,0,0,0.6);
+}
+
+
+/* =====================================================
+   BEACON
+===================================================== */
+
+.beacon {
+    position: absolute;
+
+    top: -15px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 23px;
+    height: 35px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #383e42,
+            #8a969c,
+            #31383c
+        );
+
+    border-radius: 5px;
+
+    z-index: 15;
+}
+
+.beacon-light {
+    position: absolute;
+
+    left: 3px;
+    top: 2px;
+
+    width: 17px;
+    height: 17px;
+
+    border-radius: 50%;
+
+    background: #21e66d;
+
+    box-shadow:
+        0 0 15px #21e66d;
+}
+
+.beacon.danger .beacon-light {
+    background: #ff3030;
+
+    box-shadow:
+        0 0 25px #ff3030;
+
+    animation: beaconFlash 0.7s infinite;
+}
+
+
+/* =====================================================
+   WATER
+===================================================== */
+
+.water {
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    height: 25%;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(20,190,255,0.15),
+            rgba(0,100,220,0.72)
+        );
+
+    border-top:
+        2px solid rgba(60,210,255,0.8);
+
+    z-index: 20;
+
+    animation: waterMove 1.8s infinite ease-in-out;
+}
+
+.water span {
+    position: absolute;
+
+    right: 10px;
+    top: 8px;
+
+    font-size: 10px;
+
+    color: white;
+
+    font-weight: 800;
+}
+
+
+/* =====================================================
+   SENSOR CARDS
+===================================================== */
+
+.sensor {
+    min-height: 255px;
+
+    padding: 25px;
+
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 20px;
+}
+
+.sensor-icon {
+    font-size: 45px;
+
+    filter:
+        drop-shadow(0 0 10px rgba(40,180,255,0.5));
+}
+
+.sensor-content {
+    flex: 1;
+}
+
+.sensor h3 {
+    color: #b6c7d8;
+
+    font-size: 16px;
+
+    margin-bottom: 8px;
+}
+
+.value {
+    font-size: 39px;
+
+    font-weight: 800;
+
+    letter-spacing: -1px;
+
+    margin-bottom: 14px;
+}
+
+.value small {
+    font-size: 20px;
+    color: #9caec0;
+}
+
+
+/* PROGRESS */
+
+.progress {
+    width: 100%;
+
+    height: 12px;
+
+    background: #26384b;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+    margin-bottom: 14px;
+}
+
+.progress-fill {
+    height: 100%;
+
+    width: 30%;
+
+    border-radius: 20px;
+
+    transition:
+        width 0.5s;
+}
+
+.temperature-fill {
+    background:
+        linear-gradient(
+            90deg,
+            #22e56b,
+            #ffe000,
+            #ff3030
+        );
+}
+
+.humidity-fill {
+    background:
+        linear-gradient(
+            90deg,
+            #18c8ff,
+            #2878ff
+        );
+}
+
+
+/* STATUS LABEL */
+
+.status-label {
+    display: inline-block;
+
+    padding: 7px 18px;
+
+    border-radius: 20px;
+
+    font-size: 11px;
+
+    font-weight: 900;
+}
+
+.status-label.safe {
+    color: #06150b;
+
+    background: #21e66d;
+
+    box-shadow:
+        0 0 14px rgba(33,230,109,0.25);
+}
+
+.status-label.warning {
+    background: #ffd429;
+    color: #171000;
+}
+
+.status-label.danger {
+    background: #ff3030;
+    color: white;
+}
+
+
+/* =====================================================
+   STATUS CARD
+===================================================== */
+
+.status-card {
+    min-height: 160px;
+
+    padding: 28px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 20px;
+}
+
+.big-icon {
+    font-size: 43px;
+}
+
+.status-card h3 {
+    color: #aebfd0;
+    font-size: 15px;
+    margin-bottom: 8px;
+}
+
+.big-status {
+    font-size: 24px;
+    font-weight: 900;
+}
+
+.green-text {
+    color: #24e66e;
+    text-shadow:
+        0 0 12px rgba(36,230,110,0.25);
+}
+
+.red-text {
+    color: #ff3c3c;
+    text-shadow:
+        0 0 12px rgba(255,50,50,0.35);
+}
+
+
+/* =====================================================
+   ALARM
+===================================================== */
+
+.alarm-card {
+    grid-column: 2 / span 2;
+
+    min-height: 135px;
+
+    padding: 22px 28px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 20px;
+
+    border-color:
+        rgba(50,230,100,0.18);
+}
+
+.alarm-symbol {
+    font-size: 42px;
+}
+
+.alarm-card h3 {
+    color: #b4c4d2;
+
+    font-size: 15px;
+
+    margin-bottom: 7px;
+}
+
+#alarmStatus {
+    color: #24e66e;
+
+    font-size: 23px;
+
+    font-weight: 900;
+}
+
+.alarm-card.active {
+    border-color:
+        rgba(255,40,40,0.85);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(90,12,18,0.95),
+            rgba(30,7,12,0.98)
+        );
+
+    box-shadow:
+        0 0 35px rgba(255,0,0,0.18);
+}
+
+.alarm-card.active #alarmStatus {
+    color: #ff3030;
+
+    text-shadow:
+        0 0 12px rgba(255,0,0,0.7);
+}
+
+.beacon-small {
+    margin-left: auto;
+
+    width: 50px;
+    height: 50px;
+
+    border-radius: 50%;
+
+    background: #19332a;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+}
+
+.beacon-small div {
+    width: 25px;
+    height: 25px;
+
+    border-radius: 50%;
+
+    background: #21e66d;
+
+    box-shadow:
+        0 0 18px #21e66d;
+}
+
+.alarm-card.active .beacon-small {
+    background: #48191b;
+}
+
+.alarm-card.active .beacon-small div {
+    background: #ff3030;
+
+    box-shadow:
+        0 0 25px #ff3030;
+
+    animation:
+        beaconFlash 0.7s infinite;
+}
+
+
+/* =====================================================
+   CHART
+===================================================== */
+
+.chart-panel {
+    grid-column: 1 / span 2;
+
+    min-height: 315px;
+
+    padding-bottom: 15px;
+}
+
+.time-buttons {
+    display: flex;
+    gap: 5px;
+}
+
+.time-buttons button {
+    background: #142a42;
+
+    border: 1px solid #284662;
+
+    color: #94aac0;
+
+    padding: 6px 12px;
+
+    border-radius: 15px;
+
+    font-size: 10px;
+
+    cursor: pointer;
+}
+
+.time-buttons button.active {
+    background: #168ee8;
+
+    color: white;
+
+    border-color: #2bb9ff;
+
+    box-shadow:
+        0 0 10px rgba(20,150,255,0.25);
+}
+
+#sensorChart {
+    width: 100% !important;
+    height: 230px !important;
+
+    padding:
+        10px 15px 0;
+}
+
+
+/* =====================================================
+   LOG
+===================================================== */
+
+.log-panel {
+    grid-column: 3;
+
+    min-height: 315px;
+}
+
+.view-all {
+    color: #24baff;
+
+    font-size: 11px;
+
+    cursor: pointer;
+}
+
+.activity-log {
+    padding: 15px 20px;
+}
+
+.log-item {
+    display: flex;
+
+    gap: 12px;
+
+    padding: 10px 0;
+
+    border-bottom:
+        1px solid rgba(255,255,255,0.06);
+}
+
+.log-item:last-child {
+    border-bottom: none;
+}
+
+.log-dot {
+    width: 9px;
+    height: 9px;
+
+    border-radius: 50%;
+
+    margin-top: 5px;
+
+    flex-shrink: 0;
+}
+
+.log-item.normal .log-dot {
+    background: #20e66b;
+
+    box-shadow:
+        0 0 8px #20e66b;
+}
+
+.log-item.warning .log-dot {
+    background: #ffd21f;
+
+    box-shadow:
+        0 0 8px #ffd21f;
+}
+
+.log-item.danger .log-dot {
+    background: #ff3030;
+
+    box-shadow:
+        0 0 8px #ff3030;
+}
+
+.log-item b {
+    display: inline-block;
+
+    width: 62px;
+
+    color: #71869c;
+
+    font-size: 10px;
+}
+
+.log-item span:last-child {
+    color: #ced9e4;
+
+    font-size: 11px;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.footer {
+    min-height: 64px;
+
+    margin:
+        0 20px 20px;
+
+    padding:
+        12px 22px;
+
+    background:
+        rgba(4, 17, 30, 0.85);
+
+    border:
+        1px solid rgba(70,145,205,0.22);
+
+    border-radius: 12px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 35px;
+}
+
+.device {
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    font-size: 12px;
+}
+
+.device b {
+    color: white;
+}
+
+.online {
+    color: #22e66b;
+}
+
+.device-function {
+    color: #75899f;
+
+    border-left:
+        1px solid #33465b;
+
+    padding-left: 10px;
+}
+
+.last-update {
+    margin-left: auto;
+
+    color: #8fa2b6;
+
+    font-size: 11px;
+}
+
+
+/* =====================================================
+   ANIMATIONS
+===================================================== */
+
+@keyframes dangerPulse {
+
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.02);
+
+        box-shadow:
+            0 0 30px rgba(255,0,0,0.7);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+
+}
+
+
+@keyframes beaconFlash {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.25;
+    }
+
+}
+
+
+@keyframes waterMove {
+
+    0% {
+        transform:
+            translateX(-4px);
+    }
+
+    50% {
+        transform:
+            translateX(4px);
+    }
+
+    100% {
+        transform:
+            translateX(-4px);
+    }
+
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width: 1200px) {
+
+    .dashboard {
+        grid-template-columns:
+            1fr 1fr;
+    }
+
+    .shelter-panel {
+        grid-column: 1 / span 2;
+    }
+
+    .alarm-card {
+        grid-column: 1 / span 2;
+    }
+
+    .chart-panel {
+        grid-column: 1 / span 2;
+    }
+
+    .log-panel {
+        grid-column: 1 / span 2;
+    }
+
+}
+
+
+@media (max-width: 800px) {
+
+    .sidebar {
+        width: 70px;
+    }
+
+    .brand h2,
+    .menu-item span:last-child,
+    .connection div,
+    .connection strong {
+        display: none;
+    }
+
+    .brand img {
+        width: 50px;
+        height: 50px;
+    }
+
+    .main {
+        margin-left: 70px;
+        width: calc(100% - 70px);
+    }
+
+    .header {
+        height: auto;
+
+        padding: 20px;
+
+        gap: 20px;
+
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+    .header h1 {
+        font-size: 24px;
+    }
+
+    .header-status {
+        width: 100%;
+
+        justify-content: space-between;
+    }
+
+    .dashboard {
+        grid-template-columns: 1fr;
+    }
+
+    .shelter-panel,
+    .alarm-card,
+    .chart-panel,
+    .log-panel {
+        grid-column: 1;
+    }
+
+    .shelter-panel {
+        min-height: 450px;
+    }
+
+    .shelter-container {
+        height: 395px;
+    }
+
+    .shelter {
+        width: 80%;
+        left: 10%;
+    }
+
+    .footer {
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+    .last-update {
+        margin-left: 0;
+    }
+
+}
+
+
+/* =====================================================
+   SMALL SCREEN
+===================================================== */
+
+@media (max-width: 520px) {
+
+    .sidebar {
+        display: none;
+    }
+
+    .main {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .dashboard {
+        padding: 10px;
+    }
+
+    .header {
+        padding: 15px;
+    }
+
+    .header h1 {
+        font-size: 21px;
+    }
+
+    .header p {
+        font-size: 11px;
+    }
+
+    .sensor {
+        min-height: 190px;
+
+        padding: 18px;
+    }
+
+    .value {
+        font-size: 30px;
+    }
+
+    .status-card {
+        min-height: 130px;
+
+        padding: 20px;
+    }
+
+    .alarm-card {
+        padding: 18px;
+    }
+
+    .chart-panel {
+        min-height: 280px;
+    }
+
+    .time-buttons button {
+        padding: 5px 7px;
+    }
+
+    .footer {
+        margin:
+            0 10px 10px;
+    }
+
+}
+```

@@ -1,0 +1,463 @@
+```html
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Shelter Monitoring System</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- ================= SIDEBAR ================= -->
+    <aside class="sidebar">
+
+        <div class="brand">
+            <img src="poltekbang-surabaya.png" alt="Logo Poltekbang Surabaya">
+
+            <h2>POLITEKNIK<br>
+                PENERBANGAN<br>
+                SURABAYA</h2>
+        </div>
+
+        <nav class="menu">
+
+            <button class="menu-item active">
+                <span>⌂</span>
+                <span>Dashboard</span>
+            </button>
+
+            <button class="menu-item">
+                <span>▥</span>
+                <span>Riwayat Data</span>
+            </button>
+
+            <button class="menu-item">
+                <span>⚙</span>
+                <span>Pengaturan</span>
+            </button>
+
+            <button class="menu-item">
+                <span>ⓘ</span>
+                <span>Tentang</span>
+            </button>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+
+            <div class="connection">
+                <span class="status-dot green"></span>
+
+                <div>
+                    <b>ESP32-01</b>
+                    <small>Sensor & Logika</small>
+                </div>
+
+                <strong>ONLINE</strong>
+            </div>
+
+            <div class="connection">
+                <span class="status-dot green"></span>
+
+                <div>
+                    <b>ESP32-02</b>
+                    <small>Alarm & Notifikasi</small>
+                </div>
+
+                <strong>ONLINE</strong>
+            </div>
+
+        </div>
+
+    </aside>
+
+
+    <!-- ================= MAIN ================= -->
+    <main class="main">
+
+        <!-- HEADER -->
+        <header class="header">
+
+            <div>
+                <h1>Shelter Monitoring System</h1>
+
+                <p>
+                    Monitoring Kondisi Shelter Peralatan Navigasi Bandara Berbasis IoT
+                </p>
+            </div>
+
+            <div class="header-status">
+
+                <div class="live">
+                    <span class="status-dot green"></span>
+                    Live Monitoring
+                </div>
+
+                <div class="clock" id="clock">
+                    07:35:21
+                </div>
+
+                <div class="wifi">
+                    📶
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- CONTENT -->
+        <section class="dashboard">
+
+
+            <!-- ================= VISUAL SHELTER ================= -->
+
+            <div class="panel shelter-panel">
+
+                <div class="panel-title">
+
+                    <div>
+                        <span class="home-icon">⌂</span>
+                        <span>Visual Shelter</span>
+                    </div>
+
+                    <div id="doorAlert" class="alert-badge hidden">
+                        ⚠ PINTU TERBUKA!
+                    </div>
+
+                </div>
+
+
+                <div class="shelter-container">
+
+                    <div class="sky"></div>
+
+                    <!-- tanah -->
+                    <div class="ground"></div>
+
+                    <!-- SHELTER -->
+                    <div class="shelter">
+
+                        <!-- atap -->
+                        <div class="roof"></div>
+
+                        <!-- badan -->
+                        <div class="wall">
+
+                            <div class="vent vent-left"></div>
+                            <div class="vent vent-right"></div>
+
+                            <div class="shelter-label">
+                                NAVIGATION<br>
+                                EQUIPMENT<br>
+                                SHELTER
+                            </div>
+
+
+                            <!-- RUANG DALAM -->
+                            <div class="inside">
+
+                                <div class="equipment equipment-1"></div>
+                                <div class="equipment equipment-2"></div>
+                                <div class="equipment equipment-3"></div>
+
+                                <div class="ceiling-light"></div>
+
+                                <!-- GENANGAN -->
+                                <div id="waterVisual" class="water hidden">
+                                    <span>GENANGAN</span>
+                                </div>
+
+                            </div>
+
+
+                            <!-- PINTU -->
+                            <div id="door" class="door">
+
+                                <div class="door-handle"></div>
+
+                                <div class="door-sign">
+                                    SHELTER
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <!-- LAMPU ALARM -->
+                        <div id="beacon" class="beacon">
+                            <div class="beacon-light"></div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= SUHU ================= -->
+
+            <div class="panel sensor temperature">
+
+                <div class="sensor-icon">
+                    🌡️
+                </div>
+
+                <div class="sensor-content">
+
+                    <h3>Suhu</h3>
+
+                    <div class="value">
+                        <span id="temperature">27.5</span>
+                        <small>°C</small>
+                    </div>
+
+                    <div class="progress">
+                        <div id="temperatureBar"
+                             class="progress-fill temperature-fill">
+                        </div>
+                    </div>
+
+                    <span id="temperatureStatus"
+                          class="status-label safe">
+                        NORMAL
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= KELEMBAPAN ================= -->
+
+            <div class="panel sensor humidity">
+
+                <div class="sensor-icon">
+                    💧
+                </div>
+
+                <div class="sensor-content">
+
+                    <h3>Kelembapan</h3>
+
+                    <div class="value">
+                        <span id="humidity">61</span>
+                        <small>%</small>
+                    </div>
+
+                    <div class="progress">
+                        <div id="humidityBar"
+                             class="progress-fill humidity-fill">
+                        </div>
+                    </div>
+
+                    <span id="humidityStatus"
+                          class="status-label safe">
+                        NORMAL
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= STATUS PINTU ================= -->
+
+            <div class="panel status-card">
+
+                <div class="big-icon door-icon">
+                    🚪
+                </div>
+
+                <div>
+
+                    <h3>Status Pintu</h3>
+
+                    <div id="doorStatus"
+                         class="big-status green-text">
+                        TERTUTUP
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= AIR ================= -->
+
+            <div class="panel status-card">
+
+                <div class="big-icon water-icon">
+                    ≋
+                </div>
+
+                <div>
+
+                    <h3>Genangan Air</h3>
+
+                    <div id="waterStatus"
+                         class="big-status green-text">
+                        AMAN
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= ALARM ================= -->
+
+            <div id="alarmPanel"
+                 class="panel alarm-card">
+
+                <div class="alarm-symbol">
+                    🔊
+                </div>
+
+                <div>
+
+                    <h3>Status Alarm</h3>
+
+                    <div id="alarmStatus">
+                        BUZZER MATI
+                    </div>
+
+                </div>
+
+                <div class="beacon-small">
+                    <div></div>
+                </div>
+
+            </div>
+
+
+            <!-- ================= GRAFIK ================= -->
+
+            <div class="panel chart-panel">
+
+                <div class="panel-title">
+
+                    <span>📊 Grafik Data Sensor</span>
+
+                    <div class="time-buttons">
+
+                        <button class="active">1 Jam</button>
+                        <button>6 Jam</button>
+                        <button>12 Jam</button>
+                        <button>24 Jam</button>
+
+                    </div>
+
+                </div>
+
+                <canvas id="sensorChart"></canvas>
+
+            </div>
+
+
+            <!-- ================= LOG ================= -->
+
+            <div class="panel log-panel">
+
+                <div class="panel-title">
+
+                    <span>📋 Log Aktivitas</span>
+
+                    <span class="view-all">
+                        Lihat Semua →
+                    </span>
+
+                </div>
+
+                <div id="activityLog" class="activity-log">
+
+                    <div class="log-item normal">
+                        <span class="log-dot"></span>
+
+                        <div>
+                            <b>07:34:10</b>
+                            <span>Kondisi shelter normal</span>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- FOOTER STATUS -->
+
+        <footer class="footer">
+
+            <div class="device">
+
+                <span class="status-dot green"></span>
+
+                <b>ESP32-01</b>
+
+                <span class="online">
+                    Online
+                </span>
+
+                <span class="device-function">
+                    Sensor & Logika
+                </span>
+
+            </div>
+
+
+            <div class="device">
+
+                <span class="status-dot green"></span>
+
+                <b>ESP32-02</b>
+
+                <span class="online">
+                    Online
+                </span>
+
+                <span class="device-function">
+                    Alarm & Notifikasi
+                </span>
+
+            </div>
+
+
+            <div class="last-update">
+
+                Terakhir Update:
+                <span id="lastUpdate">
+                    07:34:10
+                </span>
+
+                ↻
+
+            </div>
+
+        </footer>
+
+    </main>
+
+</div>
+
+
+<!-- JAVASCRIPT -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<!-- MQTT untuk koneksi website ke HiveMQ -->
+<script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
+
+<script src="script.js"></script>
+
+</body>
+</html>
+```
